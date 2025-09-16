@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Black Screen</title>
+  
+  <!-- Link to manifest -->
+  <link rel="manifest" href="manifest.json">
+  
   <style>
     html, body {
       margin: 0;
@@ -13,26 +17,14 @@
       background-color: black;
       overflow: hidden;
       touch-action: none;
-      cursor: none; /* hide cursor on mobile */
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -webkit-tap-highlight-color: transparent;
     }
   </style>
 </head>
 <body>
-
-<script>
-  // On first touch, request fullscreen
-  document.body.addEventListener('touchstart', () => {
-    const elem = document.documentElement;
-    if (elem.requestFullscreen) {
-      elem.requestFullscreen().catch(()=>{});
-    } else if (elem.webkitRequestFullscreen) { // Safari
-      elem.webkitRequestFullscreen();
-    }
-    // Remove listener after first touch
-    document.body.removeEventListener('touchstart', this);
-  }, {once: true});
-</script>
-
 </body>
 </html>
+
 
